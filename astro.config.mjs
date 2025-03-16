@@ -22,7 +22,14 @@ import svelte from "@astrojs/svelte";
 
 // import { defineConfig } from 'astro/config';
 
+// export default defineConfig({
+//   base: "/CertifiedRobustnessPage/", // Replace with your actual repo name
+//   output: "static",
+// });
+
+import { defineConfig } from 'astro/config';
+
 export default defineConfig({
-  base: "/CertifiedRobustnessPage/", // Replace with your actual repo name
-  output: "static",
+  site: 'https://Avinandan22.github.io',
+  base: '/CertifiedRobustnessPage/',
 });

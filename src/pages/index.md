@@ -1,9 +1,9 @@
 ---
-layout: ../layouts/Layout.astro
-title: Keeping up with dynamic attackers:Certifying robustness to adaptive online data poisoning
-description: Simple project page template for your research paper, built with Astro and Tailwind CSS
-favicon: favicon.svg
-thumbnail: screenshot-light.png
+layout: "../layouts/Layout.astro"
+title: "Keeping up with dynamic attackers Certifying robustness to adaptive online data poisoning"
+description: "Simple project page template for your research paper, built with Astro and Tailwind CSS"
+favicon: "favicon.svg"
+thumbnail: "screenshot-light.png"
 ---
 
 import Header from "../components/Header.astro";
@@ -16,7 +16,7 @@ import TwoColumns from "../components/TwoColumns.astro";
 import YouTubeVideo from "../components/YouTubeVideo.astro";
 import LaTeX from "../components/LaTeX.astro";
 
-import { ImageComparison } from "../components/ImageComparison.tsx";
+import {ImageComparison} from "../components/ImageComparison.tsx";
 
 import outside from "../assets/outside.mp4";
 import transformer from "../assets/transformer.webp";
@@ -28,12 +28,9 @@ import table1 from "../assets/table1.webp"
 import mean from "../assets/mean.avif"
 import dogsTrue from "../assets/dogs-true.png"
 
-import 'katex/dist/katex.min.css';
-
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
-export const components = {pre: CodeBlock, table: Table}
-
+export const components = {pre: CodeBlock, table: Table};
 
 <Header
   title={frontmatter.title}
@@ -56,6 +53,7 @@ export const components = {pre: CodeBlock, table: Table}
     {
       name: "Krishnamurthy Dj Dvijotham",
       institution: "ServiceNow Research",
+      notes: [],
     },
   ]}
   conference="AISTATS 2025"
@@ -72,12 +70,11 @@ export const components = {pre: CodeBlock, table: Table}
     },
     {
       name: "Blog",
-	url: "https://www.servicenow.com/blogs/2025/robustness-against-dynamic-data-poisoning",
-     }
-  ]}
-  />
-
-
+      url: "https://www.servicenow.com/blogs/2025/robustness-against-dynamic-data-poisoning",
+      icon: "ri:article-line", 
+    },
+  ]} 
+/>
 
 <HighlightedSection>
 
