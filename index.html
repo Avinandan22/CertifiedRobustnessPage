@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Simple project page template for your research paper, built with Astro and Tailwind CSS"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.4.1"><link rel="icon" type="image/svg+xml" href="/CertifiedRobustnessPage/favicon.svg"><meta property="og:title" content="Keeping up with dynamic attackers Certifying robustness to adaptive online data poisoning"><meta property="og:description" content="Simple project page template for your research paper, built with Astro and Tailwind CSS"><meta property="og:type" content="website"><meta property="og:image" content="/CertifiedRobustnessPage/screenshot-light.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.css" integrity="sha384-WsHMgfkABRyG494OmuiNmkAOk8nhO1qE+Y6wns6v+EoNoTNxrWxYpl5ZYWFOLPCM" crossorigin="anonymous"><title>Keeping up with dynamic attackers Certifying robustness to adaptive online data poisoning</title><style>@media (prefers-color-scheme: dark){.astro-code,.astro-code span{color:var(--shiki-dark)!important;font-style:var(--shiki-dark-font-style)!important;font-weight:var(--shiki-dark-font-weight)!important;text-decoration:var(--shiki-dark-text-decoration)!important}}body{font-family:Noto Sans,sans-serif}a{@apply text-blue-500 dark:text-blue-300 hover:underline;}p{@apply text-lg w-full;}h1{@apply text-5xl text-center font-medium;}h2{@apply w-full text-3xl font-bold;}h3{@apply w-full text-xl font-bold;}h4{@apply w-full font-bold;}table{@apply border-y-2 border-black dark:border-zinc-50;}thead{@apply border-b border-black dark:border-zinc-50;}th,td{@apply px-4;}ul{@apply prose list-disc list-inside w-full;}ol{@apply prose list-decimal list-inside w-full;}
+</style></head> <body class="flex flex-col gap-4 items-center pt-12 pb-6 w-full [&>*]:px-6 [&>*]:max-w-[60rem] [&>astro-island>*]:px-6 [&>astro-island>*]:max-w-[60rem] text-zinc-900 bg-zinc-50 dark:text-zinc-50 dark:bg-zinc-900"> <p>import Header from ”../components/Header.astro”;
+import Video from ”../components/Video.astro”;
+import HighlightedSection from ”../components/HighlightedSection.astro”;
+import SmallCaps from ”../components/SmallCaps.astro”;
+import Figure from ”../components/Figure.astro”;
+import Image from ”../components/Image.astro”;
+import TwoColumns from ”../components/TwoColumns.astro”;
+import YouTubeVideo from ”../components/YouTubeVideo.astro”;
+import LaTeX from ”../components/LaTeX.astro”;</p>
+<p>import {ImageComparison} from ”../components/ImageComparison.tsx”;</p>
+<p>import outside from ”../assets/outside.mp4”;
+import transformer from ”../assets/transformer.webp”;
+import Splat from ”../components/Splat.tsx”
+import dogsDiffc from ”../assets/dogs-diffc.png”
+import Figure3 from ”../assets/Figure3.avif”
+import schematic from ”../assets/schematic.png”
+import table1 from ”../assets/table1.webp”
+import mean from ”../assets/mean.avif”
+import dogsTrue from ”../assets/dogs-true.png”</p>
+<p>import CodeBlock from ”../components/CodeBlock.astro”;
+import Table from ”../components/Table.astro”;
+export const components = {pre: CodeBlock, table: Table};</p>
+<header 2025="" title="{frontmatter.title}" authors="{[" {="" name:="" &#x22;avinandan="" bose&#x22;,="" institution:="" &#x22;university="" of="" washington&#x22;,="" notes:="" [],="" },="" &#x22;laurent="" lessard&#x22;,="" &#x22;northeastern="" university&#x22;,="" &#x22;maryam="" fazel&#x22;,="" &#x22;krishnamurthy="" dj="" dvijotham&#x22;,="" &#x22;servicenow="" research&#x22;,="" ]}="" conference="AISTATS 2025" links="{[" &#x22;paper&#x22;,="" url:="" &#x22;https:="" arxiv.org="" pdf="" 2502.16737&#x22;,="" icon:="" &#x22;ri:file-pdf-2-line&#x22;,="" &#x22;code&#x22;,="" github.com="" avinandan22="" certified-robustness&#x22;,="" &#x22;ri:github-line&#x22;,="" &#x22;blog&#x22;,="" www.servicenow.com="" blogs="" robustness-against-dynamic-data-poisoning&#x22;,="" &#x22;ri:article-line&#x22;,="">
+<highlightedsection>
+<h2 id="abstract">Abstract</h2>
+<p>Machine learning (ML) and AI rely on massive, uncurated datasets, where verifying data quality is often impractical. As AI models increasingly incorporate input from untrusted users, they become more vulnerable to carefully orchestrated attacks that can compromise their reliability.</p>
+<p>Adversarial data poisoning poses significant cybersecurity risks, ranging from life-threatening misdiagnoses to market disruptions. As illustrated in Table 1, these attacks can vary depending on the stage at which they occur, during training or deployment.</p>
+<figure>
+  <img slot="figure" source="{table1}" alttext="Table 1: Cybersecurity risks of adversarial data poisoning">
+  <span slot="caption">Table 1: Cybersecurity risks of adversarial data poisoning.</span>
+</figure>
+<p>Currently, much research focuses on certifying model robustness against static adversaries that modify a portion of the offline dataset before the training algorithm is applied (as shown in Figure 1). For backdoor attack certification, studies typically involve adversaries poisoning offline datasets in a single step, making these attacks non-dynamic.</p>
+<p>Dynamically optimized attack strategies enhance the effectiveness of adversarial poisoning. Online attackers can observe the trained algorithm in real time and adapt their poisoning tactics to the evolving behavior of the ML model.</p>
+<p>This is particularly true for models that are continuously or periodically updated, such as those involved in fine-tuning or reinforcement learning from human feedback (RLHF).</p>
+<p>We introduce a new way to protect ML systems from dynamic data poisoning attacks. We developed a framework that helps us measure how much an attack could affect the model, and we use these measurements to create learning algorithms that can better handle such attacks.</p>
+</highlightedsection>
+<h2 id="the-problem-setup">The Problem Setup</h2>
+<p>Let’s break down the problem. We assume that our learning algorithm is trying to estimate a set of parameters θ (like the mean of some data). The algorithm updates its estimate of θ with every new data point it receives.</p>
+<p>We study the setting of online learning, where the learning algorithm is continuously learning from new data. This is reflective of popular paradigms in frontier AI models, such as ChatGPT, Gemini, and Claude, that involve constantly adapting and improving the models given new data or feedback from users.</p>
+<p>In an online learning setup, the algorithm learns from one data point at a time and adjusts the model’s parameters accordingly. The update rule for the parameters maps the parameters at time (t) to new parameters given an external noise and a data point.</p>
+<p>In our setup, some of the data points may be poisoned by an adversary who wants to mislead the algorithm. A practical example where this is shown to be possible is demonstrated in a paper about poisoning web-scale training datasets.</p>
+<p>Widely used models, such as Contrastive Language-Image Pre-training (CLIP), trained on data scraped from the web can be poisoned by an attacker who buys some of the domains harvested to create the training data and injects bad data.</p>
+<p>At each step, the algorithm might receive poisoned data with a certain probability. This is controlled by a parameter, which determines what fraction of data points are poisoned.</p>
+<p>Unlike standard data poisoning attacks, where the poisoning adversary must choose the poisoned data points before learning happens, our setting allows the adversary to observe the online learning process and adjust their attack as the algorithm learns. This creates a more powerful threat model that can achieve stronger poisoning.</p>
+<figure>
+  <img slot="figure" source="{schematic}" alttext="Schematic diagrams highlighting the differences between static and dynamic data poisoning">
+  <span slot="caption">Figure 1: Schematic diagrams highlighting the differences between static and dynamic data poisoning.</span>
+</figure>
+<highlightedsection>
+<h2 id="how-the-adversary-affects-the-learning-process">How the adversary affects the learning process</h2>
+<p>The learning process forms a chain, where the current estimate of the parameters depends on all previous estimates and the data received. The adversary tries to influence this process by poisoning the data at certain points. We need to understand how this affects the parameter estimates over time.</p>
+<p>The adversary’s goal is to maximize some kind of loss function—for example, increasing the error rate of predictions the model makes. We can think of the adversary’s actions as decisions in a game, where each move tries to make the model less accurate.</p>
+</highlightedsection>
+<h2 id="general-framework-to-compute-certificate">General Framework to Compute Certificate</h2>
+<p>Our main contribution is the robustness certificate. This is a tool that helps us understand how much damage an adversarial attack can do to a model. Using this certificate, we can design algorithms that are more resistant to attacks (see Figure 2). We calculate how different choices of poisoned data influence the parameter estimates. This gives us a “measure” of the model’s robustness. The certificate allows us to predict and limit the damage done by these attacks.</p>
+<p>Our approach is inspired by meta-learning, where we aim to design a learning algorithm that performs well across a range of distributions.</p>
+<p>The first component focuses on the algorithm’s ability to perform effectively without an adversary, by ensuring it converges to a stable set of parameters that results in low expected loss. The second component provides an upper bound on the potential worst-case loss the algorithm might face when an adversary is involved.</p>
+<p>The key here is to find a defense that works well on average, even when faced with new, unseen data distributions.</p>
+<figure>
+  <img slot="figure" source="{Figure3}" alttext="Schematic of robustness certificate.">
+  <span slot="caption">Figure 2: Schematic of robustness certificate.</span>
+</figure>
+<highlightedsection>
+<h2 id="experiments">Experiments</h2>
+<p>We tested our defense on a set of 50 Gaussian distributions (a common data type in statistics). The defense parameter was trained on 10 randomly chosen distributions, and we tested how well it performed when faced with poisoned data.</p>
+<p>The results (see Figure 3) demonstrate that our defense significantly improves performance compared to training without any defense. We varied the learning rates and the fraction of samples corrupted by the dynamic adversary.</p>
+<p>Based on our results, our algorithm performs much better at estimating the mean, even when a significant fraction of the data is poisoned.</p>
+<figure>
+  <img slot="figure" source="{mean}" alttext="Figure 4: Test performance (mean squared error between true and estimated means)">
+  <span slot="caption">Figure 3: Test performance (mean squared error between true and estimated means).</span>
+</figure>
+</highlightedsection>
+<h2 id="conclusions">Conclusions</h2>
+<p>Although we illustrated our framework using mean estimations and binary classification, its applications extend far beyond this simple example. Our defense strategies are particularly valuable for real-world AI systems, from binary classifiers making critical yes/no decisions (such as fraud detection in financial transactions) to multiclass systems categorizing data into multiple categories (such as image recognition or document topic classification).</p>
+<p>More significantly, the framework can protect reward models in reinforcement learning systems, where corrupted feedback could fundamentally alter AI behavior and learning trajectory.</p>
+<p>Our robustness certificates provide AI practitioners with tools to quantify and mitigate vulnerabilities to dynamic poisoning attacks. As AI systems become increasingly integrated in critical applications, these defenses offer a mathematical foundation for building more reliable and trustworthy AI systems.</p>
+<h2 id="bibtex-citation">BibTeX citation</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bibtex"><code><span class="line"><span style="color:#F97583">@article</span><span style="color:#E1E4E8">{</span><span style="color:#B392F0">bose2025keeping</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  title</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">{</span><span style="color:#E1E4E8">Keeping up with dynamic attackers: Certifying robustness to adaptive online data poisoning</span><span style="color:#9ECBFF">}</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  author</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">{</span><span style="color:#E1E4E8">Bose, Avinandan and Lessard, Laurent and Fazel, Maryam and Dvijotham, Krishnamurthy Dj</span><span style="color:#9ECBFF">}</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  journal</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">{</span><span style="color:#E1E4E8">arXiv preprint arXiv:2502.16737</span><span style="color:#9ECBFF">}</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  year</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">{</span><span style="color:#E1E4E8">2025</span><span style="color:#9ECBFF">}</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre></header> <footer class="m-auto"> <p class="text-zinc-500 dark:text-zinc-400 text-sm [&_a]:text-blue-500 dark:[&_a]:text-blue-300">
+This page was built using <a href="https://github.com/RomanHauksson/academic-project-astro-template">Roman Hauksson's academic project page template</a>, which was adapted from <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Eliahu Horwitz's template</a>, which was adapted from <a href="https://nerfies.github.io/">Keunhong Park's project page for <i>Nerfies</i></a>. It is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+</p> </footer> </body></html>
