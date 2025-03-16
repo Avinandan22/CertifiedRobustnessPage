@@ -8,14 +8,21 @@ import react from "@astrojs/react";
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
+// export default defineConfig({
+//   integrations: [tailwind(), icon(), mdx(), react(), svelte()],
+//   markdown: {
+//     shikiConfig: {
+//       themes: {
+//         light: 'github-light',
+//         dark: 'github-dark',
+//       },
+//     }
+//   }
+// });
+
+// import { defineConfig } from 'astro/config';
+
 export default defineConfig({
-  integrations: [tailwind(), icon(), mdx(), react(), svelte()],
-  markdown: {
-    shikiConfig: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
-    }
-  }
+  base: "/CertifiedRobustnessPage/", // Replace with your actual repo name
+  output: "static",
 });
